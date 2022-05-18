@@ -33,11 +33,12 @@
         <Button x:Name="btn1" Grid.Row="4" Grid.Column="0" Click="btn1_Click_1">1</Button>
         <Button x:Name="btn2" Grid.Row="4" Grid.Column="1" Click="btn2_Click">2</Button>
         <Button x:Name="btn3" Grid.Row="4" Grid.Column="2" Click="btn3_Click_1">3</Button>
-        <Button x:Name="btn0" Grid.Row="5" Grid.Column="1" Click="btn0_Click">0</Button>
+        <Button x:Name="btn0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Click="btn0_Click">0</Button>
         
         <!--Reken Knoppen-->
         <Button x:Name="btnplus" Grid.Row="1" Grid.Column="4" Click="btnplus_Click">+</Button>
         <Button x:Name="btnmin" Grid.Row="2" Grid.Column="4" Click="btnmin_Click">-</Button>
+        <Button x:Name="btnmacht" Grid.Row="1" Grid.Column="2" Click="btnmacht_Click">x²</Button>
         <Button x:Name="btnkeer" Grid.Row="3" Grid.Column="4" Click="btnkeer_Click">x</Button>
         <Button x:Name="btndelen" Grid.Row="4" Grid.Column="4" Click="btndelen_Click">/</Button>
         <Button x:Name="btnis" Grid.Row="5" Grid.Column="4" Click="btnis_Click">=</Button>

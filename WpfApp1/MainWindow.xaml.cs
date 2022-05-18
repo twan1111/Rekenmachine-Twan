@@ -20,205 +20,195 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        long number1 = 0;
-        long number2 = 0;
-        string operation = "";
+        private RekenMachineState _state;
+        private long _number1 = 0;
+        private long _number2 = 0;
+        private string _operation = "";
 
         public MainWindow()
         {
             InitializeComponent();
+            _state = RekenMachineState.Invoer1;
+        }
+
+        private void VoerNummerIn(int nummer)
+        {
+            switch (_state)
+            {
+                case RekenMachineState.Invoer1:
+                    _number1 = (_number1 * 10) + nummer;
+                    display.Text = _number1.ToString();
+                    break;
+                case RekenMachineState.Invoer2:
+                    _number2 = (_number2 * 10) + nummer;
+                    display.Text = _number2.ToString();
+                    break;
+                case RekenMachineState.Uitkomst:
+                    _number2 = nummer;
+                    display.Text = _number2.ToString();
+                    _state = RekenMachineState.Invoer2;
+                    break;
+            }
+
         }
 
         private void btn1_Click_1(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 1;
-                display.Text = number1.ToString();
-            } else
-            {
-                number2 = (number2 *10) + 1;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(1);
         }
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 2;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 2;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(2);
         }
 
         private void btn3_Click_1(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 3;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 3;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(3);
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 4;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 4;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(4);
         }
+
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 5;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 5;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(5);
         }
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 6;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 6;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(6);
         }
 
         private void btn7_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 7;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 7;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(7);
         }
 
         private void btn8_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 8;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 8;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(8);
         }
 
         private void btn9_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 9;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 9;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(9);
         }
 
         private void btn0_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
-            {
-                number1 = (number1 * 10) + 0;
-                display.Text = number1.ToString();
-            }
-            else
-            {
-                number2 = (number2 * 10) + 0;
-                display.Text = number2.ToString();
-            }
+            VoerNummerIn(0);
         }
 
         private void btnplus_Click(object sender, RoutedEventArgs e)
         {
-            operation = "+";
+            _operation = "+";
             display.Text = "0";
+
+            if (_state == RekenMachineState.Invoer1)
+            {
+                _state = RekenMachineState.Invoer2;
+            }
+            else
+            {
+                _state = RekenMachineState.Uitkomst;
+            }
         }
 
         private void btnmin_Click(object sender, RoutedEventArgs e)
         {
-            operation = "-";
+            _operation = "-";
             display.Text = "0";
+
+            if (_state == RekenMachineState.Invoer1)
+            {
+                _state = RekenMachineState.Invoer2;
+            }
+            else
+            {
+                _state = RekenMachineState.Uitkomst;
+            }
         }
 
         private void btnkeer_Click(object sender, RoutedEventArgs e)
         {
-            operation = "x";
+            _operation = "x";
             display.Text = "0";
+
+
+            if (_state == RekenMachineState.Invoer1)
+            {
+                _state = RekenMachineState.Invoer2;
+            }
+            else
+            {
+                _state = RekenMachineState.Uitkomst;
+            }
         }
 
         private void btndelen_Click(object sender, RoutedEventArgs e)
         {
-            operation = "/";
+            _operation = "/";
             display.Text = "0";
+
+            if (_state == RekenMachineState.Invoer1)
+            {
+                _state = RekenMachineState.Invoer2;
+            }
+            else
+            {
+                _state = RekenMachineState.Uitkomst;
+            }
         }
 
         private void btnis_Click(object sender, RoutedEventArgs e)
         {
-            switch (operation)
+            switch (_operation)
             {
                 case "+":
-                    display.Text = (number1 + number2).ToString();
+                    _number1 += _number2;
+                    display.Text = _number1.ToString();
                     break;
                 case "-":
-                    display.Text = (number2 - number1).ToString();
+                    _number1 -= _number2;
+                    display.Text = _number1.ToString();
                     break;
                 case "x":
-                    display.Text = (number1 * number2).ToString();
+                    _number1 *= _number2;
+                    display.Text = _number1.ToString();
                     break;
                 case "/":
-                    display.Text = (number1 / number2).ToString();
+                    _number1 /= _number2;
+                    display.Text = _number1.ToString();
                     break;
+                case "x²":
+                    display.Text = Math.Pow(_number1, 2).ToString();
+                    break;
+
+            }
+
+            if (_state == RekenMachineState.Invoer1)
+            {
+                _state = RekenMachineState.Invoer2;
+            }
+            else
+            {
+                _state = RekenMachineState.Uitkomst;
             }
         }
 
         private void btnce_Click(object sender, RoutedEventArgs e)
         {
-            if (operation == "")
+            if (_operation == "")
             {
-                number1 = 0;
+                _number1 = 0;
+                _state = RekenMachineState.Invoer1;
             } else
             {
-                number2 = 0;
+                _number2 = 0;
+                _state = RekenMachineState.Invoer2;
             }
 
             display.Text = "0";
@@ -226,8 +216,15 @@ namespace WpfApp1
 
         private void btnc_Click(object sender, RoutedEventArgs e)
         {
-            number1 = 0;
-            number2 = 0;
+            _number1 = 0;
+            _number2 = 0;
+            display.Text = "0";
+            _state = RekenMachineState.Invoer1;
+        }
+
+        private void btnmacht_Click(object sender, RoutedEventArgs e)
+        {
+            _operation = "x²";
             display.Text = "0";
         }
     }
