@@ -36,16 +36,16 @@
         <Button x:Name="btn0" Grid.Row="5" Grid.Column="1" Click="btn0_Click">0</Button>
         
         <!--Reken Knoppen-->
-        <Button x:Name="btnplus" Grid.Row="1" Grid.Column="4">+</Button>
-        <Button x:Name="btnmin" Grid.Row="2" Grid.Column="4">-</Button>
-        <Button x:Name="btnkeer" Grid.Row="3" Grid.Column="4">x</Button>
+        <Button x:Name="btnplus" Grid.Row="1" Grid.Column="4" Click="btnplus_Click">+</Button>
+        <Button x:Name="btnmin" Grid.Row="2" Grid.Column="4" Click="btnmin_Click">-</Button>
+        <Button x:Name="btnkeer" Grid.Row="3" Grid.Column="4" Click="btnkeer_Click">x</Button>
         <Button x:Name="btndelen" Grid.Row="4" Grid.Column="4" Click="btndelen_Click">/</Button>
         <Button x:Name="btnis" Grid.Row="5" Grid.Column="4" Click="btnis_Click">=</Button>
         
         <!--Wis knoppen-->
 
-        <Button x:Name="btnce" Grid.Row="1" Grid.Column="0">CE</Button>
-        <Button x:Name="btnc" Grid.Row="1" Grid.Column="1">C</Button>
+        <Button x:Name="btnce" Grid.Row="1" Grid.Column="0" Click="btnce_Click">CE</Button>
+        <Button x:Name="btnc" Grid.Row="1" Grid.Column="1" Click="btnc_Click">C</Button>
         
         <!--Display-->
         <TextBox x:Name="display" Grid.Row="0" BorderThickness="0" FontSize="30" TextAlignment="Right" VerticalAlignment="Bottom" IsReadOnly="true" Grid.Column="0" Grid.ColumnSpan="4">0</TextBox>

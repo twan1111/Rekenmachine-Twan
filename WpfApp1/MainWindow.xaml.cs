@@ -194,9 +194,41 @@ namespace WpfApp1
 
         private void btnis_Click(object sender, RoutedEventArgs e)
         {
-            operation case {
-
+            switch (operation)
+            {
+                case "+":
+                    display.Text = (number1 + number2).ToString();
+                    break;
+                case "-":
+                    display.Text = (number2 - number1).ToString();
+                    break;
+                case "x":
+                    display.Text = (number1 * number2).ToString();
+                    break;
+                case "/":
+                    display.Text = (number1 / number2).ToString();
+                    break;
             }
+        }
+
+        private void btnce_Click(object sender, RoutedEventArgs e)
+        {
+            if (operation == "")
+            {
+                number1 = 0;
+            } else
+            {
+                number2 = 0;
+            }
+
+            display.Text = "0";
+        }
+
+        private void btnc_Click(object sender, RoutedEventArgs e)
+        {
+            number1 = 0;
+            number2 = 0;
+            display.Text = "0";
         }
     }
 }
